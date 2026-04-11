@@ -137,24 +137,26 @@
 
   /* ── TEACHING ── */
   .course-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem;
+    display: flex; flex-direction: column; gap: 0;
   }
   .course-card {
-    background: var(--bg-off); border-radius: 8px;
-    padding: 1.4rem 1.5rem; border: 1px solid var(--line);
-    transition: box-shadow 0.3s, transform 0.3s;
+    background: var(--bg); border-radius: 0;
+    padding: 1.1rem 0; border: none;
+    border-bottom: 1px solid var(--line);
+    display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
   }
-  .course-card:hover {
-    box-shadow: 0 4px 16px rgba(0,0,0,0.06); transform: translateY(-2px);
-  }
+  .course-card:last-child { border-bottom: none; }
+  .course-card:hover { }
   .course-card h4 {
-    font-family: var(--serif); font-size: 1.1rem; font-weight: 500;
-    color: var(--ink); margin-bottom: 0.25rem;
+    font-family: var(--serif); font-size: 1.05rem; font-weight: 500;
+    color: var(--ink); margin-bottom: 0;
   }
   .course-card .meta { font-size: 0.85rem; color: var(--muted); }
   .course-card .rating {
-    margin-top: 0.4rem; font-size: 0.85rem; color: var(--navy); font-weight: 500;
+    font-size: 0.85rem; color: var(--navy); font-weight: 500; margin-top: 0.15rem;
   }
+  .course-left { flex: 1; }
+  .course-right { text-align: right; flex-shrink: 0; }
 
   /* ── CONFERENCES ── */
   .conf-tags {
@@ -254,7 +256,6 @@
       <li><a href="#about" onclick="closeMenu()">About</a></li>
       <li><a href="#research" onclick="closeMenu()">Research</a></li>
       <li><a href="#teaching" onclick="closeMenu()">Teaching</a></li>
-      <li><a href="#cv" onclick="closeMenu()">CV</a></li>
       <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
     </ul>
   </div>
@@ -267,10 +268,13 @@
     <h1>Vincentia Yuen</h1>
     <p class="subtitle">Assistant Professor of Marketing · City University of Hong Kong</p>
     <p class="bio">
+      My name is Vincentia Yuen. I am an Assistant Professor of Marketing at the City University of Hong Kong. I received my Ph.D. in Business (Marketing) from the Miami Herbert Business School, University of Miami.
+    </p>
+    <p class="bio" style="margin-top:0.8rem;">
       I study how consumers interact with technology and make decisions in digital environments. My research interests include consumer-technology interaction, word of mouth and user-generated content, and prosocial behavior.
     </p>
     <p class="contact-line">
-      Contact: <a href="mailto:vincentia.yuen@cityu.edu.hk">vincentia.yuen@cityu.edu.hk</a>
+      Contact: <a href="/cdn-cgi/l/email-protection#1167787f72747f6578703f6864747f5172786568643f7475643f797a"><span class="__cf_email__" data-cfemail="9ee8f7f0fdfbf0eaf7ffb0e7ebfbf0defdf7eae7ebb0fbfaebb0f6f5">[email&#160;protected]</span></a>
     </p>
   </div>
 </section>
@@ -354,36 +358,35 @@
   </p>
   <div class="course-grid">
     <div class="course-card">
-      <h4>Customer Relationship Management</h4>
-      <p class="meta">Undergraduate · City University of Hong Kong</p>
-      <p class="meta">Spring 2026</p>
+      <div class="course-left">
+        <h4>Customer Relationship Management</h4>
+        <p class="meta">Instructor · Undergraduate · City University of Hong Kong</p>
+      </div>
+      <div class="course-right"><p class="meta">Spring 2026</p></div>
     </div>
     <div class="course-card">
-      <h4>Customer Relationship Management</h4>
-      <p class="meta">M.S. in Marketing · City University of Hong Kong</p>
-      <p class="meta">Spring 2026</p>
+      <div class="course-left">
+        <h4>Customer Relationship Management</h4>
+        <p class="meta">Instructor · M.S. in Marketing · City University of Hong Kong</p>
+      </div>
+      <div class="course-right"><p class="meta">Spring 2026</p></div>
     </div>
     <div class="course-card">
-      <h4>Foundations of Marketing</h4>
-      <p class="meta">Undergraduate · University of Miami</p>
-      <p class="meta">Summer 2023</p>
-      <p class="rating">&#9733; 4.6 / 5.0</p>
+      <div class="course-left">
+        <h4>Foundations of Marketing</h4>
+        <p class="meta">Instructor · Undergraduate · University of Miami</p>
+        <p class="rating">&#9733; 4.6 / 5.0</p>
+      </div>
+      <div class="course-right"><p class="meta">Summer 2023</p></div>
     </div>
     <div class="course-card">
-      <h4>Foundations of Marketing Management</h4>
-      <p class="meta">MBA, Guest Lecturer · University of Miami</p>
-      <p class="meta">Spring 2023</p>
-      <p class="rating">&#9733; 4.5 / 5.0</p>
+      <div class="course-left">
+        <h4>Foundations of Marketing Management</h4>
+        <p class="meta">Guest Lecturer · MBA · University of Miami</p>
+        <p class="rating">&#9733; 4.5 / 5.0</p>
+      </div>
+      <div class="course-right"><p class="meta">Spring 2023</p></div>
     </div>
-  </div>
-</section>
-
-<!-- CV -->
-<section id="cv">
-  <h2 class="section-title">Curriculum Vitae</h2>
-  <div class="cv-section">
-    <a class="cv-btn" href="#" download>Download CV (PDF)</a>
-    <p style="margin-top:0.6rem; font-size:0.83rem; color:var(--muted);">Replace the link above with a URL to your CV PDF.</p>
   </div>
 </section>
 
@@ -391,9 +394,9 @@
 <section id="contact">
   <h2 class="section-title">Contact</h2>
   <div class="contact-links">
-    <a href="mailto:vincentia.yuen@cityu.edu.hk">
+    <a href="/cdn-cgi/l/email-protection#0e7867606d6b607a676f20777b6b604e6d677a777b206b6a7b206665">
       <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-      vincentia.yuen@cityu.edu.hk
+      <span class="__cf_email__" data-cfemail="88fee1e6ebede6fce1e9a6f1fdede6c8ebe1fcf1fda6edecfda6e0e3">[email&#160;protected]</span>
     </a>
     <a href="https://www.linkedin.com/in/vincentiayuen/" target="_blank" rel="noopener">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -406,7 +409,7 @@
   &copy; 2026 Vincentia Yuen
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   function closeMenu() { document.querySelector('.nav-links').classList.remove('open'); }
 
   const confData = {
@@ -431,14 +434,4 @@
     const d = confData[id];
     if (!d) return;
     let html = '<h4>' + d.title + '</h4>';
-    d.papers.forEach(p => { html += '<div class="conf-paper">' + p + '</div>'; });
-    document.getElementById('confContent').innerHTML = html;
-    document.getElementById('confOverlay').classList.add('open');
-  }
-  function closeConf() {
-    document.getElementById('confOverlay').classList.remove('open');
-  }
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeConf(); });
-</script>
-</body>
-</html>
+    d.papers.fo
