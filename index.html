@@ -438,4 +438,14 @@
     const d = confData[id];
     if (!d) return;
     let html = '<h4>' + d.title + '</h4>';
-    d.papers.fo
+    d.papers.forEach(function(p) { html += '<div class="conf-paper">' + p + '</div>'; });
+    document.getElementById('confContent').innerHTML = html;
+    document.getElementById('confOverlay').classList.add('open');
+  }
+  function closeConf() {
+    document.getElementById('confOverlay').classList.remove('open');
+  }
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeConf(); });
+</script>
+</body>
+</html>
